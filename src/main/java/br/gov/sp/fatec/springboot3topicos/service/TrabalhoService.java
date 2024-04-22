@@ -26,5 +26,9 @@ public class TrabalhoService {
     public Optional<Trabalho> buscarPorId(Long id) {
         return trabalhoRepository.findById(id);
     }
+
+    public List<Trabalho> buscarTrabalhosPorTituloENota(String palavraChave, int nota) {
+        return trabalhoRepository.findByTituloAndNota(palavraChave, nota);
+    }
 }
 

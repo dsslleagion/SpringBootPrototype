@@ -36,5 +36,10 @@ public class TrabalhoController {
         return trabalho.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @GetMapping("/trabalho/buscar")
+    public ResponseEntity<List<Trabalho>> buscarTrabalhosPorTituloENota(@RequestParam String palavraChave, @RequestParam int nota) {
+        List<Trabalho> trabalhos = trabalhoService.buscarTrabalhosPorTituloENota(palavraChave, nota);
+        return ResponseEntity.ok(trabalhos);
+    }
 }
 
